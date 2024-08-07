@@ -1,6 +1,7 @@
 package com.euphony.innate;
 
 import com.euphony.innate.block.InnateBlock;
+import com.euphony.innate.data.DataGenerators;
 import com.euphony.innate.item.InnateCreativeTab;
 import com.euphony.innate.item.InnateItem;
 import com.mojang.logging.LogUtils;
@@ -27,7 +28,7 @@ import org.slf4j.Logger;
 public class Innate
 {
     public static final String MODID = "innate";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public Innate(IEventBus modEventBus, ModContainer modContainer)
     {
@@ -38,21 +39,17 @@ public class Innate
         InnateBlock.register(modEventBus);
         InnateCreativeTab.register(modEventBus);
 
-        // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
-        // Register the item to a creative tab
+        modEventBus.addListener(DataGenerators::gatherData);
+
         modEventBus.addListener(this::addCreative);
 
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
 
         if (Config.logDirtBlock)
@@ -71,7 +68,6 @@ public class Innate
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-        // Do something when the server starts
         LOGGER.info("HELLO from server starting");
     }
 
@@ -81,7 +77,6 @@ public class Innate
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
