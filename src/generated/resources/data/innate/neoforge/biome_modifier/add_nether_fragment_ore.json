@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": "innate:nether_life_fragment_ore",
+  "step": "underground_ores"
+}
