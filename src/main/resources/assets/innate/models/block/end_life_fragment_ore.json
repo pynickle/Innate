@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "innate:block/end_life_fragment_ore"
+  }
+}

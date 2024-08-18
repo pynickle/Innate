@@ -11,6 +11,7 @@ import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Set;
@@ -23,7 +24,7 @@ public class InnateLootTable extends LootTableProvider {
     }
 
     @Override
-    protected void validate(WritableRegistry<LootTable> writableRegistry, ValidationContext validationContext, ProblemReporter.Collector problemReporter$collecter) {
+    protected void validate(WritableRegistry<LootTable> writableRegistry, @NotNull ValidationContext validationContext, ProblemReporter.@NotNull Collector problemReporter$collecter) {
         var innateLootTableId = BuiltInLootTables.all()
                 .stream()
                 .filter(id -> id.registry().getNamespace().equals(Innate.MODID))

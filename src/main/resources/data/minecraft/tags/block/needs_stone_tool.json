@@ -1,5 +1,6 @@
 {
   "values": [
-    "innate:life_fragment_ore"
+    "innate:life_fragment_ore",
+    "innate:nether_life_fragment_ore"
   ]
 }

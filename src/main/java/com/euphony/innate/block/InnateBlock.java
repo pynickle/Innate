@@ -20,8 +20,24 @@ public class InnateBlock {
 
     public static final Supplier<Block> LIFE_FRAGMENT_ORE = registerBlock("life_fragment_ore",
             () -> new DropExperienceBlock(UniformInt.of(3, 6),
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
-                            .strength(0.1f).requiresCorrectToolForDrops()));
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
+                            .strength(0.5f, 1.0f)
+                            .requiresCorrectToolForDrops()));
+
+    public static final Supplier<Block> NETHER_LIFE_FRAGMENT_BLOCK = registerBlock("nether_life_fragment_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
+                    .strength(0.3f, 0.8f)
+                    .requiresCorrectToolForDrops()));
+
+    public static final Supplier<Block> END_LIFE_FRAGMENT_BLOCK = registerBlock("end_life_fragment_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
+                    .strength(0.8f, 1.3f)
+                    .requiresCorrectToolForDrops()));
+
+    public static final Supplier<Block> DEEPSLATE_LIFE_FRAGMENT_BLOCK = registerBlock("deepslate_life_fragment_block",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
+                    .strength(0.8f, 1.3f)
+                    .requiresCorrectToolForDrops()));
 
     private static <T extends Block> Supplier<T> registerBlock(String name, Supplier<T> block) {
         Supplier<T> toReturn = BLOCKS.register(name, block);

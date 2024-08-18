@@ -2,6 +2,9 @@
   "item.innate.life_fragment": "Life Fragment",
 
   "block.innate.life_fragment_ore": "Life Fragment Ore",
+  "block.innate.nether_life_fragment_ore": "Nether Life Fragment Ore",
+  "block.innate.end_life_fragment_ore": "End Life Fragment Ore",
+  "block.innate.deepslate_life_fragment_ore": "Deepslate Life Fragment Ore",
 
   "creativetab.innate_tab": "Innate"
 }
